@@ -2,8 +2,8 @@ const pages = {};
 
 const Page = constructor => {
   const className = constructor.name;
-  const endpointPath = "/" + className.toLowerCase();
-  pages[endpointPath] = new constructor();
+  const selector = "/" + className.toLowerCase();
+  pages[selector] = new constructor();
 };
 
 @Page
