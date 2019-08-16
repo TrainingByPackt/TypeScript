@@ -6,22 +6,6 @@ const Page = constructor => {
   pages[selector] = new constructor();
 };
 
-const authGuard = (target, propertyKey, descriptor) => {
-  const originalFunction = descriptor.value;
-
-  descriptor.value = function(request) {
-    if (request.username === "someAdmin" && request.password === "secret123") {
-      const bindedOriginalFunction = originalFunction.bind(this);
-      const result = bindedOriginalFunction(request);
-      return result;
-    } else {
-      throw new Error("You shall not pass");
-    }
-  };
-
-  return descriptor;
-};
-
 @Page
 class AboutUs {
   private content = [
@@ -46,20 +30,5 @@ class ContactUs {
   }
 }
 
-@Page
-class AdminDashboard {
-  private content = [`<div>`, `<h1>`, `Secret stuff`, `</h1>`, `</div>`];
-
-  @authGuard
-  render() {
-    return this.content.join("");
-  }
-}
-
 console.log(pages); //?
 pages["/aboutus"].render(); //?
-// pages["/admindashboard"].render({}); //?
-pages["/admindashboard"].render({
-  username: "someAdmin",
-  password: "secret123"
-}); //?
