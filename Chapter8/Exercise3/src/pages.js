@@ -10,13 +10,32 @@ var Page = function (constructor) {
     var selector = "/" + className.toLowerCase();
     pages[selector] = new constructor();
 };
+var handleMethodDecoratorBinding = function (params) {
+    var bindedOriginalFunction = params.originalFunction.bind(params.thisObject);
+    var result = bindedOriginalFunction(params.request);
+    return result;
+};
+var adminLog = function (target, propertyKey, descriptor) {
+    var originalFunction = descriptor.value;
+    descriptor.value = function (request) {
+        console.log("Dashboard accessed by", request.username);
+        return handleMethodDecoratorBinding({
+            originalFunction: originalFunction,
+            request: request,
+            thisObject: this
+        });
+    };
+    return descriptor;
+};
 var authGuard = function (target, propertyKey, descriptor) {
     var originalFunction = descriptor.value;
     descriptor.value = function (request) {
         if (request.username === "someAdmin" && request.password === "secret123") {
-            var bindedOriginalFunction = originalFunction.bind(this);
-            var result = bindedOriginalFunction(request);
-            return result;
+            return handleMethodDecoratorBinding({
+                originalFunction: originalFunction,
+                request: request,
+                thisObject: this
+            });
         }
         else {
             throw new Error("You shall not pass");
@@ -62,16 +81,15 @@ var AdminDashboard = /** @class */ (function () {
         return this.content.join("");
     };
     __decorate([
-        authGuard
+        authGuard,
+        adminLog
     ], AdminDashboard.prototype, "render", null);
     AdminDashboard = __decorate([
         Page
     ], AdminDashboard);
     return AdminDashboard;
 }());
-console.log(pages); //?
 pages["/aboutus"].render(); //?
-// pages["/admindashboard"].render({}); //?
 pages["/admindashboard"].render({
     username: "someAdmin",
     password: "secret123"

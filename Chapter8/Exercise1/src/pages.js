@@ -10,20 +10,6 @@ var Page = function (constructor) {
     var selector = "/" + className.toLowerCase();
     pages[selector] = new constructor();
 };
-var authGuard = function (target, propertyKey, descriptor) {
-    var originalFunction = descriptor.value;
-    descriptor.value = function (request) {
-        if (request.username === "someAdmin" && request.password === "secret123") {
-            var bindedOriginalFunction = originalFunction.bind(this);
-            var result = bindedOriginalFunction(request);
-            return result;
-        }
-        else {
-            throw new Error("You shall not pass");
-        }
-    };
-    return descriptor;
-};
 var AboutUs = /** @class */ (function () {
     function AboutUs() {
         this.content = [
@@ -54,25 +40,5 @@ var ContactUs = /** @class */ (function () {
     ], ContactUs);
     return ContactUs;
 }());
-var AdminDashboard = /** @class */ (function () {
-    function AdminDashboard() {
-        this.content = ["<div>", "<h1>", "Secret stuff", "</h1>", "</div>"];
-    }
-    AdminDashboard.prototype.render = function () {
-        return this.content.join("");
-    };
-    __decorate([
-        authGuard
-    ], AdminDashboard.prototype, "render", null);
-    AdminDashboard = __decorate([
-        Page
-    ], AdminDashboard);
-    return AdminDashboard;
-}());
 console.log(pages); //?
 pages["/aboutus"].render(); //?
-// pages["/admindashboard"].render({}); //?
-pages["/admindashboard"].render({
-    username: "someAdmin",
-    password: "secret123"
-}); //?
