@@ -92,4 +92,4 @@ pages["/aboutus"].render(); //?
 pages["/admindashboard"].render({
   username: "someAdmin",
   password: "secret123"
-}); //?
+});

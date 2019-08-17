@@ -90,7 +90,7 @@ var AdminDashboard = /** @class */ (function () {
     return AdminDashboard;
 }());
 pages["/aboutus"].render(); //?
-pages["/admindashboard"].render({
+console.log("XXX", pages["/admindashboard"].render({
     username: "someAdmin",
     password: "secret123"
-}); //?
+}));
