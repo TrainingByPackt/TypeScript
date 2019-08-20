@@ -6,6 +6,6 @@ describe("scoreboard with decorator validation", () => {
     const scoreboard = new Scoreboard("Blue Jays", "Mariners");
     expect(function() {
       scoreboard.render();
-    }).toThrow(new Error("Parsing is not possible"));
+    }).toThrow(new Error("Not authenticated"));
   });
 });
