@@ -9,4 +9,10 @@ describe("scoreboard with decorator validation", function () {
             scoreboard.render();
         }).toThrow(new Error("Not authenticated"));
     });
+    it("should render content when a jwt token is sent with the request", function () {
+        var scoreboard = new scoreboard_js_1.default("Blue Jays", "Mariners");
+        expect(function () {
+            scoreboard.render({ token: "somelongcode" });
+        }).toThrow(new Error("Not authenticated"));
+    });
 });
