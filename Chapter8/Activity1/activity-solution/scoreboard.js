@@ -6,17 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var jwtTokenAuth = function (target, propertyKey, descriptor) {
+var heading = function (target, propertyKey, descriptor) {
     var originalFunction = descriptor.value;
     descriptor.value = function (request) {
-        if (request && request.token) {
-            var bindedOriginalFunction = originalFunction.bind(this);
-            var result = bindedOriginalFunction(request);
-            return result;
-        }
-        else {
-            throw new Error("Not authenticated");
-        }
+        var bindedOriginalFunction = originalFunction.bind(this);
+        var result = bindedOriginalFunction(request);
+        return "<h1>" + result + "</h1>";
     };
     return descriptor;
 };
@@ -26,11 +21,13 @@ var Scoreboard = /** @class */ (function () {
         this.awayTeam = awayTeam;
     }
     Scoreboard.prototype.render = function () {
-        return "<div>" + this.homeTeam + " vs " + this.awayTeam + "</div>";
+        return this.homeTeam + " vs " + this.awayTeam;
     };
     __decorate([
-        jwtTokenAuth
+        heading
     ], Scoreboard.prototype, "render", null);
     return Scoreboard;
 }());
 exports.default = Scoreboard;
+var scoreboard = new Scoreboard("Blue Jays", "Mariners");
+scoreboard.render(); //?

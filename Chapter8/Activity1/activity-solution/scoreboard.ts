@@ -1,14 +1,10 @@
-const jwtTokenAuth = (target, propertyKey, descriptor) => {
+const heading = (target, propertyKey, descriptor) => {
   const originalFunction = descriptor.value;
 
   descriptor.value = function(request) {
-    if (request && request.token) {
-      const bindedOriginalFunction = originalFunction.bind(this);
-      const result = bindedOriginalFunction(request);
-      return result;
-    } else {
-      throw new Error("Not authenticated");
-    }
+    const bindedOriginalFunction = originalFunction.bind(this);
+    const result = bindedOriginalFunction(request);
+    return `<h1>${result}</h1>`;
   };
 
   return descriptor;
@@ -23,8 +19,11 @@ export default class Scoreboard {
     this.awayTeam = awayTeam;
   }
 
-  @jwtTokenAuth
+  @heading
   render() {
-    return `<div>${this.homeTeam} vs ${this.awayTeam}</div>`;
+    return `${this.homeTeam} vs ${this.awayTeam}`;
   }
 }
+
+const scoreboard = new Scoreboard("Blue Jays", "Mariners");
+scoreboard.render(); //?
