@@ -27,12 +27,12 @@ export default class Auth {
     this.source = args.source;
   }
 
-  validUser(): boolean {
+  validUser(): string {
     const { email, password } = this.user;
     if (email === "admin@example.com" && password === "secret123") {
-      return true;
+      return `Validating user...User is authenticated: true`;
     } else {
-      return false;
+      return `Validating user...User is authenticated: false`;
     }
   }
 }
@@ -52,11 +52,11 @@ const authAttemptFromGoodUser = new Auth({
   source: "Google"
 });
 
-authAttemptFromGoodUser.validUser(); //?
+console.log(authAttemptFromGoodUser.validUser()); //?
 
 const authAttemptFromBadUser = new Auth({
   user: badUser,
   source: "Google"
 });
 
-authAttemptFromBadUser.validUser(); //?
+console.log(authAttemptFromBadUser.validUser()); //?
