@@ -1,0 +1,16 @@
+{
+  "name": "chapter-11-exercise-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "users.js",
+  "scripts": {
+    "test": "jasmine-ts --config=jasmine.json",
+    "testWithCoverage": "nyc -r lcov -e .ts -x \"*.spec.ts\" jasmine-ts --config=jasmine.json && nyc report"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}
