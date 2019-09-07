@@ -1,31 +1,29 @@
-const userData = [
-  { id: 1, email: "test@test1.com" },
-  { id: 2, email: "test@test2.com" },
-  { id: 3, email: "test@test3.com" },
-  { id: 4, email: "test@test4.com" },
-  { id: 5, email: "test@test5.com" }
-];
-
-export async function getUser(id: number) {
-  return new Promise<{ id: number; email: string }>(res => {
+let performUpload = function(
+  imgStatus: string
+): Promise<{ imgStatus: string }> {
+  return new Promise(resolve => {
+    console.log(`Status: ${imgStatus}`);
     setTimeout(() => {
-      res(userData[id]);
-    }, 1000);
-  });
-}
-
-const query = () => {
-  const ids = [1, 4, 5];
-
-  return ids.map(async id => {
-    const item = await getUser(id);
-
-    if (item) {
-      return `ID: ${item.id} Email: ${item.email}`;
-    } else {
-      return "Loading...";
-    }
+      resolve({ imgStatus: imgStatus });
+    }, 2000);
   });
 };
 
-query(); //?
+var upload;
+var compress;
+var transfer;
+
+performUpload("uploading...")
+  .then(res => {
+    upload = res;
+    console.log("Upload rsponse" + upload);
+    return performUpload("compressing...");
+  })
+  .then(res => {
+    transfer = res;
+    return performUpload("transfering...");
+  })
+  .then(res => {
+    upload = res;
+    return performUpload("Image upload completed");
+  });
