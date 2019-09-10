@@ -1,13 +1,10 @@
 import * as React from "react";
-
-import Hello from "./Hello";
-import HelloWithHooks from "./HelloWithHooks";
+import HeatMapGraph from "./HeatMapGraph";
 
 const App = () => {
   return (
     <div>
-      <Hello compiler={"TS"} framework={"React"} />
-      <HelloWithHooks />
+      <HeatMapGraph />
     </div>
   );
 };
