@@ -9,21 +9,13 @@ let performUpload = function(
   });
 };
 
-var upload;
-var compress;
-var transfer;
-
 performUpload("uploading...")
   .then(res => {
-    upload = res;
-    console.log("Upload rsponse" + upload);
     return performUpload("compressing...");
   })
   .then(res => {
-    transfer = res;
     return performUpload("transfering...");
   })
   .then(res => {
-    upload = res;
     return performUpload("Image upload completed");
   });
