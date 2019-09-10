@@ -1,4 +1,4 @@
-let performUpload = function (imgStatus) {
+let performUpload = (imgStatus) => {
     return new Promise(resolve => {
         console.log(`Status: ${imgStatus}`);
         setTimeout(() => {
