@@ -2,13 +2,11 @@ import React from "react";
 import { Group } from "@vx/group";
 import { genBins } from "@vx/mock-data";
 import { scaleLinear } from "@vx/scale";
-import { HeatmapCircle, HeatmapRect } from "@vx/heatmap";
+import { HeatmapCircle } from "@vx/heatmap";
 
 const hot1 = "#77312f";
 const hot2 = "#f33d15";
-const cool1 = "#122549";
-const cool2 = "#b4fbde";
-const bg = "#28272c";
+const bg = "white";
 
 const data = genBins(16, 16);
 
@@ -16,14 +14,12 @@ const data = genBins(16, 16);
 const max = (data, value = d => d) => Math.max(...data.map(value));
 const min = (data, value = d => d) => Math.min(...data.map(value));
 
-// accessors
 const bins = d => d.bins;
 const count = d => d.count;
 
 const colorMax = max(data, d => max(bins(d), count));
 const bucketSizeMax = max(data, d => bins(d).length);
 
-// scales
 const xScale = scaleLinear({
   domain: [0, data.length]
 });
@@ -32,10 +28,6 @@ const yScale = scaleLinear({
 });
 const circleColorScale = scaleLinear({
   range: [hot1, hot2],
-  domain: [0, colorMax]
-});
-const rectColorScale = scaleLinear({
-  range: [cool1, cool2],
   domain: [0, colorMax]
 });
 const opacityScale = scaleLinear({
@@ -60,7 +52,7 @@ export default ({
     size = width - margin.left - margin.right - separation;
   }
 
-  const xMax = size / 2;
+  const xMax = size;
   const yMax = height - margin.bottom - margin.top;
 
   const binWidth = xMax / data.length;
@@ -105,41 +97,6 @@ export default ({
             });
           }}
         </HeatmapCircle>
-      </Group>
-      <Group top={margin.top} left={xMax + margin.left + separation}>
-        <HeatmapRect
-          data={data}
-          xScale={xScale}
-          yScale={yScale}
-          colorScale={rectColorScale}
-          opacityScale={opacityScale}
-          binWidth={binWidth}
-          binHeight={binWidth}
-          gap={2}
-        >
-          {heatmap => {
-            return heatmap.map(bins => {
-              return bins.map(bin => {
-                return (
-                  <rect
-                    key={`heatmap-rect-${bin.row}-${bin.column}`}
-                    className="vx-heatmap-rect"
-                    width={bin.width}
-                    height={bin.height}
-                    x={bin.x}
-                    y={bin.y}
-                    fill={bin.color}
-                    fillOpacity={bin.opacity}
-                    onClick={event => {
-                      const { row, column } = bin;
-                      alert(JSON.stringify({ row, column, ...bin.bin }));
-                    }}
-                  />
-                );
-              });
-            });
-          }}
-        </HeatmapRect>
       </Group>
     </svg>
   );
