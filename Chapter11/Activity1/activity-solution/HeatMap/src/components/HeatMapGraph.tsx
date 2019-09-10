@@ -4,8 +4,8 @@ import { genBins } from "@vx/mock-data";
 import { scaleLinear } from "@vx/scale";
 import { HeatmapCircle } from "@vx/heatmap";
 
-const hot1 = "#77312f";
-const hot2 = "#f33d15";
+const hot1 = "#235f85";
+const hot2 = "#9a1414";
 const bg = "white";
 
 const data = genBins(16, 16);

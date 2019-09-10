@@ -1,4 +1,6 @@
 import * as React from "react";
+
+const batter = require("../assets/batter.png");
 import HeatMapGraph from "./HeatMapGraph";
 
 const App = () => {
@@ -10,7 +12,13 @@ const App = () => {
         alignItems: "center"
       }}
     >
-      <HeatMapGraph width={900} height={900} />
+      <div style={{ marginTop: "150px" }}>
+        <HeatMapGraph width={300} height={450} />
+      </div>
+
+      <div>
+        <img src={batter} />
+      </div>
     </div>
   );
 };
