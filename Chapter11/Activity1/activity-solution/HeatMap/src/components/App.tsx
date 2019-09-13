@@ -40,7 +40,7 @@ const App = () => {
             <Loader />
           </div>
         ) : (
-          <HeatMapGraph width={300} height={450} />
+          <HeatMapGraph data={data} width={300} height={450} />
         )}
       </div>
 
