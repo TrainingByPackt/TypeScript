@@ -28,3 +28,11 @@ body {
   display: grid;
   justify-items: center;
 }
+
+.loader {
+  font-size: 4em;
+  color: burlywood;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

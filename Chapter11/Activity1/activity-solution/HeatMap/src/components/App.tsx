@@ -4,9 +4,11 @@ import axios from "axios";
 
 const batter = require("../assets/batter.png");
 import HeatMapGraph from "./HeatMapGraph";
+import Loader from "./helpers/Loader";
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getData();
@@ -17,13 +19,13 @@ const App = () => {
       .get("https://api.devcamp.space/heat-map-data")
       .then(response => {
         setData(response.data.heat_map_data);
+        setIsLoading(false);
       })
       .catch(error => {
         console.log("Error", error);
       });
   };
 
-  // https://api.devcamp.space/heat-map-data
   return (
     <div
       style={{
@@ -33,7 +35,13 @@ const App = () => {
       }}
     >
       <div style={{ marginTop: "150px" }}>
-        <HeatMapGraph width={300} height={450} />
+        {isLoading ? (
+          <div style={{ height: 300, width: 300 }}>
+            <Loader />
+          </div>
+        ) : (
+          <HeatMapGraph width={300} height={450} />
+        )}
       </div>
 
       <div>

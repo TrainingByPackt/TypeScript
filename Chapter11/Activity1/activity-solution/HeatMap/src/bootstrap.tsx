@@ -1,17 +1,15 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import Icons from "./components/helpers/icons";
+
 import App from "./components/App";
 
 import "./style/main.scss";
 
 function main() {
-  ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-    document.querySelector(".app-wrapper")
-  );
+  Icons();
+
+  ReactDOM.render(<App />, document.querySelector(".app-wrapper"));
 }
 
 document.addEventListener("DOMContentLoaded", main);
