@@ -56,10 +56,9 @@ class AdminDashboard {
   }
 }
 
-console.log(pages); //?
-pages["/aboutus"].render(); //?
-// pages["/admindashboard"].render({}); //?
-pages["/admindashboard"].render({
+console.log(pages["/aboutus"].render());
+console.log(pages["/contactus"].render());
+console.log(pages["/admindashboard"].render({
   username: "someAdmin",
   password: "secret123"
-}); //?
+}));
