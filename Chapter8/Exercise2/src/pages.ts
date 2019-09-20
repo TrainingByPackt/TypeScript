@@ -39,7 +39,13 @@ class AboutUs {
 
 @Page
 class ContactUs {
-  private content = [`<div>`, `<h1>`, `Send us a message`, `</h1>`, `</div>`];
+  private content = [
+    `<div>`, 
+    `<h1>`, 
+    `Send us a message`, 
+    `</h1>`, 
+    `</div>`
+  ];
 
   render() {
     return this.content.join("");
@@ -48,7 +54,13 @@ class ContactUs {
 
 @Page
 class AdminDashboard {
-  private content = [`<div>`, `<h1>`, `Secret stuff`, `</h1>`, `</div>`];
+  private content = [
+    `<div>`, 
+    `<h1>`, 
+    `Secret stuff`, 
+    `</h1>`, 
+    `</div>`
+  ];
 
   @authGuard
   render() {
