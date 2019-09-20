@@ -23,12 +23,18 @@ class AboutUs {
 
 @Page
 class ContactUs {
-  private content = [`<div>`, `<h1>`, `Send us a message`, `</h1>`, `</div>`];
+  private content = [
+    `<div>`, 
+    `<h1>`, 
+    `Send us a message`, 
+    `</h1>`, 
+    `</div>`
+  ];
 
   render() {
     return this.content.join("");
   }
 }
 
-console.log(pages); //?
-pages["/aboutus"].render(); //?
+console.log(pages["/aboutus"].render());
+console.log(pages["/contactus"].render());
