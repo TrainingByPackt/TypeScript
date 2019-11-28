@@ -12,8 +12,8 @@ type Admin = {
     lastLogin: Date
 }
 
-// create backupUser
-type backup = {
+// create backupUser object type
+type Backup = {
     lastBackUp: Date,
     backUpLocation: string
 }
@@ -29,9 +29,8 @@ const superUSer: User & Admin = {
     ],
     lastLogin: new Date() 
 } 
-
 // create backup user
-const backupUser: User & backup = {
+const backupUser: User & Backup = {
     _id: 2,
     email: 'rayon.backup@gmail.com',
     token: '123456',
