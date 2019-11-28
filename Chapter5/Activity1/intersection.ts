@@ -1,22 +1,26 @@
+
+// create employee type
 type Employee = {
     _id: number,
     FirstName: string,
     LastName: string,
     salary?: number
-}
-
+};
+// create supervisor type
 type Supervisor = {
+    /* supervisors may have employees so added an array of type Employee
+       reuse of the Employee type shows flexibility of the typing system
+    **/
     employees: Employee[],
     department: string
-}
-
-
+};
+// create manager type
 type Manager = {
     location: string,
+    /* reuse of the Supervisor type **/
     supervisor: Supervisor[]
-}
-
-
+};
+// declare floorSupervisor intersecting Employee and Supervisor
 const floorSupervisor: Employee & Supervisor  = {
     _id:1,
     FirstName: 'Mike',
@@ -25,8 +29,8 @@ const floorSupervisor: Employee & Supervisor  = {
     employees: [
         {_id: 2, FirstName: 'Dan', LastName: 'theMan'}
     ]
-}
-
+};
+// declare storeManager intersecting Employee and Manager
 const storeManager: Employee & Manager = {
     _id:1,
     FirstName: 'Mark',
@@ -35,8 +39,7 @@ const storeManager: Employee & Manager = {
     supervisor: [
         floorSupervisor
     ]
-}
-
-
-console.log(floorSupervisor)
-console.log(storeManager)
+};
+// console out the results
+console.log(floorSupervisor);
+console.log(storeManager);
