@@ -73,22 +73,19 @@ const rayon: Person = {
     name: "Rayon",
     sex: "Male"
 };
-
 // declare a robot
 const fives: Robot = {
     height: 6.10,
     serial: "T8000",
     weight: 20000
 };
-
-
 // call the function with a person and robot
 amIHuman(rayon);
 
 amIHuman(fives);
 
 
-
+// activity
 // create a ork class
 class Ork {
     fight():void { console.log("lets get  scrapping"); }
@@ -100,7 +97,7 @@ class Human {
     callOfBattle():void { console.log("in the name of gray skull !!!"); }
 }
 
-// declare a union type or Ork and Human
+// declare a union type of Ork and Human
 type warFighter = Ork | Human;
 
 // create an instance of Ork and Human
@@ -126,11 +123,6 @@ function letsStartAFight(fighter: warFighter):void {
 // call letsStartAFight function with Ork and Human instance
 letsStartAFight(fighter1);
 letsStartAFight(fighter2);
-
-
-
-
-
 
 
 
