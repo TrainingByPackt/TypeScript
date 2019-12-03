@@ -149,9 +149,9 @@ const raptor: ICar | ITruck = {
 
 if (isCar(raptor)) {
     // i Predicate
-    console.log("this is a truck")
+    console.log("this is a truck");
 } else {
-    console.log("this is a car")
+    console.log("this is a car");
 }
 
 
