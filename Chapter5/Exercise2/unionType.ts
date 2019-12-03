@@ -125,4 +125,41 @@ letsStartAFight(fighter1);
 letsStartAFight(fighter2);
 
 
+// type Predicates and discriminated Unions
+
+//  create two type of type interface
+
+interface ICar {
+    name: string;
+}
+
+interface ITruck {
+    modelNumber: number;
+}
+
+
+// function checks type returns boolean;
+function isCar(motor: ICar | ITruck): motor is ICar {
+    return typeof motor.modelNumber === "string";
+}
+
+const raptor: ICar | ITruck = {
+    modelNumber: 7
+};
+
+if (isCar(raptor)) {
+    // i Predicate
+    console.log("this is a truck")
+} else {
+    console.log("this is a car")
+}
+
+
+
+
+
+
+
+
+
 
