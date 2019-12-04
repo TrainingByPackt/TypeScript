@@ -126,9 +126,7 @@ letsStartAFight(fighter2);
 
 
 // type Predicates and discriminated Unions
-
 //  create two type of type interface
-
 interface ICar {
     name: string;
 }
@@ -155,8 +153,44 @@ if (isCar(raptor)) {
 }
 
 
+// discriminated Unions
+// create the interfaces
+
+interface IDecepticons {
+    type: "Decepticon";
+    flyingSpeed: number;
+}
+
+interface IAutobot {
+    type: "Autobot";
+    drivingSpeed: number;
+}
 
 
+interface IJonneyFive {
+    type: "JonneyFive";
+    drivingSpeed: number;
+}
+
+// create a union type of robots
+type Robots = IDecepticons | IAutobot | IJonneyFive;
+
+
+function whichBot(bot: Robots) {
+    switch(bot.type) {
+        case "Autobot":
+            console.log("");
+            break;
+        case "Decepticon":
+            console.log("");
+            break;
+        case "JonneyFive":
+            console.log("");
+            break;
+        default:
+            console.log("Unknown Bot");
+    }
+}
 
 
 
