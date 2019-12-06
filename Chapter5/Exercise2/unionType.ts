@@ -155,43 +155,43 @@ if (isCar(raptor)) {
 
 // discriminated Unions
 // create the interfaces
-
 interface IDecepticons {
     type: "Decepticon";
     flyingSpeed: number;
 }
-
 interface IAutobot {
     type: "Autobot";
     drivingSpeed: number;
 }
-
-
 interface IJonneyFive {
     type: "JonneyFive";
-    drivingSpeed: number;
+    rollSpeed: number;
 }
 
 // create a union type of robots
 type Robots = IDecepticons | IAutobot | IJonneyFive;
-
-
 function whichBot(bot: Robots) {
     switch(bot.type) {
         case "Autobot":
-            console.log("");
+            console.log("roll out");
             break;
         case "Decepticon":
-            console.log("");
+            console.log("destroy");
             break;
         case "JonneyFive":
-            console.log("");
+            console.log("five alive");
             break;
         default:
             console.log("Unknown Bot");
     }
 }
 
+const fiveAlive: IJonneyFive = {
+    type: 'JonneyFive',
+    rollSpeed: 200
+}
+
+whichBot(fiveAlive);
 
 
 
