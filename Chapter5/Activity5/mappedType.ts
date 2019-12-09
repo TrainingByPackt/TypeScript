@@ -27,13 +27,14 @@ const user: UserModel[] = [
         last: 'hunte', password: '123456', token: 'xxx123xxx'
     }
 ]
-
-
+// declare new array of users
 const newUsers = user
 .map(
+    // make all the users read only
     (user: UserModel): Readonly<UserModel> => user
 )
 .map(
+    // pick 3 props you need 
     (user: UserModel): Pick<UserModel, 'email'| 'first'| 'last'> => {
         return {
            email: user.email,
@@ -43,4 +44,5 @@ const newUsers = user
 
     }
 )
+// console log new user array
 console.log(newUsers)
