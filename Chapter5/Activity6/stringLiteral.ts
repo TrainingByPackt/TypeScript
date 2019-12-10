@@ -1,6 +1,5 @@
 // create a sting literal union type
 type peopleNames = "Rayon" | "Mike" | "Mark";
-
 // function to check name sting and run some logic based on the string literal
 function whoAmI(name: peopleNames) {
     switch (name) {
@@ -18,12 +17,9 @@ function whoAmI(name: peopleNames) {
             break;
     }
 }
-
 // call function 
 whoAmI("Rayon")
 
-// call function
-whoAmI()
 
 
 
