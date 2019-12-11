@@ -8,8 +8,9 @@ type someCount<T> = {status: string, count: T}
 
 
 // declare new object to of type someCount pass countToThree as generic type argument  
-const start: someCount<countToThree> = {
+const startCount: someCount<countToThree> = {
     status: 'start', 
     count: 1
 }
 
+console.log(startCount);
