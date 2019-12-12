@@ -1,26 +1,22 @@
 // basic enum
-
 enum Switch {
     On,
     Off
 }
 
-console.log(Switch) 
-
+console.log(Switch)
 
 type mySwitch = {
     room: string,
     switch: Switch
 }
 
-
 const livingRoomSwitch: mySwitch = {
     room: 'living room',
     switch: Switch.On
 }
 
-
-function roomStatus(Switch : any, switchInstance: mySwitch) {
+function roomStatus(Switch, switchInstance: mySwitch) {
    if (switchInstance.switch in Switch) {
     console.log("switch has on off option")
    } else {
