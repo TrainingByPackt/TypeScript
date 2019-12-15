@@ -1,15 +1,15 @@
 /*
     UnionType and Type Guards
 **/
+// Union Type
 
-// basic union type
+// Exercise 2
 type yesNo  = string | boolean;
-
-// basic usage of  a union type and type guard
+//Union type and Type guard
 function go(status: yesNo): void {
     // type guard checks if status is boolean
-    // if boolean run below if logic
     if( typeof status === "boolean") {
+        // if boolean run below logic
         if(status) {
             console.log("lets go !!!");
         } else {
@@ -26,11 +26,12 @@ function go(status: yesNo): void {
         }
     }
 }
-
 // example of usage
 go(false);
 go("yes");
 
+
+// Exercise 2.1
 // union type object
 // create a person type
 type Person = {
@@ -46,8 +47,9 @@ type Robot = {
     weight: number;
 };
 
-// thing is a union type of person and robot and can be declared as
-// type thing = person | robot;
+/* "thing" is a union type of person and robot and can be aliased as
+ type thing = person | robot; 
+*/
 function amIHuman(thing: Person | Robot):void {
     console.log(`My Height is  ${thing.height}`);
     console.log(`My Weight is  ${thing.weight}`);
@@ -87,8 +89,9 @@ amIHuman(fives);
 
 
 
-// type Predicates and discriminated Unions
-//  create two type of type interface
+// Exercise 2.2
+// Type Predicates and discriminated Unions
+// create two Interfaces
 interface ICar {
     name: string;
 }
@@ -97,21 +100,20 @@ interface ITruck {
     modelNumber: number;
 }
 
-
-// function checks type returns boolean;
+// function checks if a property of the interface exist and returns a boolean
 function isCar(motor: ICar | ITruck): motor is ICar {
-    return typeof motor.modelNumber === "string";
+    return "name" in motor;
 }
 
+// create a truck object
 const raptor: ICar | ITruck = {
     modelNumber: 7
 };
-
+// use our function to implement some logic
 if (isCar(raptor)) {
-    // i Predicate
-    console.log("this is a truck");
-} else {
     console.log("this is a car");
+} else {
+    console.log("this is a truck");
 }
 
 
@@ -132,6 +134,7 @@ interface IJonneyFive {
 
 // create a union type of robots
 type Robots = IDecepticons | IAutobot | IJonneyFive;
+
 function whichBot(bot: Robots) {
     switch(bot.type) {
         case "Autobot":

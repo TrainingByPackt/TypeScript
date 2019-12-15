@@ -31,5 +31,4 @@ function roomStatus(Switch, switchInstance: mySwitch) {
 
 }
 
-
 roomStatus(Switch, livingRoomSwitch);

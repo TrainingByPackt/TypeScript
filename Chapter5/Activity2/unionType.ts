@@ -1,3 +1,5 @@
+
+
 // activity
 // create a ork class
 class Ork {
@@ -36,3 +38,9 @@ function letsStartAFight(fighter: warFighter):void {
 // call letsStartAFight function with Ork and Human instance
 letsStartAFight(fighter1);
 letsStartAFight(fighter2);
+
+
+if (fighter1 instanceof Ork) // returns a boolean
+{ console.log("am I green") } 
+
+

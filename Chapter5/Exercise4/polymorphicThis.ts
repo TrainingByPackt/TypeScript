@@ -38,3 +38,14 @@ class FixName extends ModMyName {
 const nameClassTwo = new FixName()
 // call your new method in chain
 nameClassTwo.nullName().updateMyName('mark willams').printName()
+
+
+// interface maxPain {
+//     shoot(): this
+// }
+
+// class Maxing implements maxPain {
+//     shoot(): this {
+//         return this;
+//     }
+// }

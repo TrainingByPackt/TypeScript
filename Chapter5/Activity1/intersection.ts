@@ -8,12 +8,13 @@ type Employee = {
 };
 // create supervisor type
 type Supervisor = {
-    /* supervisors may have employees so added an array of type Employee
-       reuse of the Employee type shows flexibility of the typing system
+    /* supervisors may have employees so added an array of type Employee.
+       Reuse of the Employee type shows the flexibility of the typing system
     **/
     employees: Employee[],
     department: string
 };
+
 // create manager type
 type Manager = {
     location: string,

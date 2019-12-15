@@ -1,8 +1,12 @@
-// an index type is used to create a type of unknown number of properties but a known property type and value type
-// an interface to define messages with flexibility
+/* an index type is used to create a type of unknown 
+number of properties but a known property type and value type
+*/
+//interface to define messages with flexibility
+// alias IMessageType
 type IMessageTypes = {
     [key: number ] : {type: string, content: string};
 };
+
 // declare an object variable with type IMessageType
 const sysMessages: IMessageTypes = {
     1: {type: "sys", content: "welcome" },
