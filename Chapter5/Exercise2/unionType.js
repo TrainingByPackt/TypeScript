@@ -1,11 +1,12 @@
 /*
     UnionType and Type Guards
 **/
-// basic usage of  a union type and type guard
+// Union Type
+//Union type and Type guard
 function go(status) {
     // type guard checks if status is boolean
-    // if boolean run below if logic
     if (typeof status === "boolean") {
+        // if boolean run below logic
         if (status) {
             console.log("lets go !!!");
         }
@@ -27,8 +28,9 @@ function go(status) {
 // example of usage
 go(false);
 go("yes");
-// thing is a union type of person and robot and can be declared as
-// type thing = person | robot;
+/* "thing" is a union type of person and robot and can be aliased as
+ type thing = person | robot;
+*/
 function amIHuman(thing) {
     console.log("My Height is  " + thing.height);
     console.log("My Weight is  " + thing.weight);
@@ -59,39 +61,38 @@ var fives = {
 // call the function with a person and robot
 amIHuman(rayon);
 amIHuman(fives);
-// create a ork class
-var Ork = /** @class */ (function () {
-    function Ork() {
-    }
-    Ork.prototype.fight = function () { console.log("lets get  scrapping"); };
-    Ork.prototype.battleCry = function () { console.log("war war !!!!!"); };
-    return Ork;
-}());
-// create a human class
-var Human = /** @class */ (function () {
-    function Human() {
-    }
-    Human.prototype.fight = function () { console.log("for the empire"); };
-    Human.prototype.callOfBattle = function () { console.log("in the name of gray skull !!!"); };
-    return Human;
-}());
-// create an instance of Ork and Human
-var fighter1 = new Ork();
-var fighter2 = new Human();
-function letsStartAFight(fighter) {
-    // call method common to Ork and Human
-    fighter.fight();
-    // instanceof type guard
-    // if class instance Ork call unique method
-    if (fighter instanceof Ork) {
-        fighter.battleCry();
-    }
-    // instanceof type guard
-    // if class instance human call unique method
-    if (fighter instanceof Human) {
-        fighter.callOfBattle();
+// function checks if a property of the interface exist and returns a boolean
+function isCar(motor) {
+    return "name" in motor;
+}
+// create a truck object
+var raptor = {
+    modelNumber: 7
+};
+// use our function to implement some logic
+if (isCar(raptor)) {
+    console.log("this is a car");
+}
+else {
+    console.log("this is a truck");
+}
+function whichBot(bot) {
+    switch (bot.type) {
+        case "Autobot":
+            console.log("roll out");
+            break;
+        case "Decepticon":
+            console.log("destroy");
+            break;
+        case "JonneyFive":
+            console.log("five alive");
+            break;
+        default:
+            console.log("Unknown Bot");
     }
 }
-// call letsStartAFight function with Ork and Human instance
-letsStartAFight(fighter1);
-letsStartAFight(fighter2);
+var fiveAlive = {
+    type: 'JonneyFive',
+    rollSpeed: 200
+};
+whichBot(fiveAlive);
