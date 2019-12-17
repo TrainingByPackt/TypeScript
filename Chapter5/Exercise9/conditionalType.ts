@@ -41,12 +41,12 @@ type Action = {type: "INIT"} | {type: "SYNC"} | {type: "LOGIN", email: string} |
 
 type ExtractActionParameters<A, T> = A extends {type: T} ? A : never;
 
-type ActionType = Action["type"]
+// type ActionType = Action["type"]
 
-function dispatch<T extends ActionType>(
-    type: T,
-    args: ExtractActionParameters<Action, T>
-    ): void {}
+// function dispatch<T extends ActionType>(
+//     type: T,
+//     args: ExtractActionParameters<Action, T>
+//     ): void {}
 
 type test = ExtractActionParameters<Action, "LOGIN">
 
