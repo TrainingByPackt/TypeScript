@@ -1,22 +1,41 @@
 
-// type alias of type union number literal 
-type countToThree  = 1| 2 | 3;
+// type alias of a number type
+type One = 1;
 
+// don't do this
+// const two : 2 = 2 
 
-/* 
-    user type generics to pass a type out object type someCount and set property count
-    to out generic type
-*/  
-type someCount<T> = {status: string, count: T}
+// user alias to declare verbal of type string literal 
+const one: One = 1
 
-
-/* 
-declare new object to of type someCount pass countToThree as generic type argument
-count can now only be set to 1, 2 or 3 without compilation errors
-*/  
-const startCount: someCount<countToThree> = {
-    status: 'start', 
-    count: 1
+// alias usage to cast argument type and to alias function return type
+function whatNumber(number: One): One {
+    console.log(typeof number) 
+    return number
 }
 
-console.log(startCount);
+// console out function return call
+console.log(
+    // call function
+    whatNumber(1)
+)
+
+
+// type alias used with class
+class SomeNumberClass {
+    
+    constructor(public number: One) {}
+    
+    ShowNumber():One{
+        return this.number
+    }
+}
+
+// instance class 
+const numberClass = new SomeNumberClass(1)
+
+// console out results
+console.log(numberClass.ShowNumber());
+
+
+

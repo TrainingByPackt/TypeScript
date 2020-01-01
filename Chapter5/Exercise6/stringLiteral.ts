@@ -1,29 +1,25 @@
+// string literal
+type Action = 'print';
 
-// create a string literal union type 
-type gateWay = "open" | "close"
-
-// create a gate class
-class GateControl {
-
-    // operate the front gate
-    frontGate(gate: gateWay): string {
-       // type guard using sting literal
-        if(gate === "open") { 
-           console.log("front gate is open !!!")
-           return "true";
-       } else {
-           console.log("front gate is closed")
-           return "false";
-       }
-    }
-}
-// instance of Gate class
-const gateControl = new GateControl;
-
-// user returning string literal 
-if (gateControl.frontGate("open") === 'true') {
-    console.log("drive your car in !!!")
-} else {
-    console.log("call the front desk")
+// a function that takes the action string type as an argument and returns the action type
+function takeAction(action: Action): Action {
+    return action;
 }
 
+// argument underlined with red 
+takeAction("drive") //?
+// error Argument of type '"drive"' is not assignable to parameter of type '"print"'.
+
+// correct string
+takeAction("print") //?
+
+// number literal
+type Pages = 5;
+
+// new function that takes string and number literal
+function takeActionTwo(action: Action, pages: Pages){
+    return {action, pages}
+}
+
+// call out new function
+takeActionTwo("print", 5) //? 

@@ -1,25 +1,17 @@
-// create a sting literal union type
-type peopleNames = "Rayon" | "Mike" | "Mark";
-// function to check name sting and run some logic based on the string literal
-function whoAmI(name: peopleNames) {
-    switch (name) {
-        case "Rayon":
-            console.log("HI Rayon !!!")
-            break;
-        case "Mike":
-            console.log("HI Mike !!!")
-            break
-        case "Mark":
-            console.log("HI Mark !!!")
-            break
-        default:
-            console.log("New Phone Who This !!!")
-            break;
-    }
+// create a string and number literal 
+type Status = "on";
+type MyNumber = 123456;
+
+//create a function that takes 2 args of string and number literal 
+function takeTwoLiteral(status:Status, myNumber: MyNumber) {
+    return {status, myNumber}
 }
-// call function 
-whoAmI("Rayon")
 
+// wrong number type errors
+takeTwoLiteral("on", 123457)
 
+// wrong string
+takeTwoLiteral("off", 123456) 
 
-
+// correct string no errors
+takeTwoLiteral("on", 123456) //?
