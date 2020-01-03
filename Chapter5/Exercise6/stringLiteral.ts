@@ -22,4 +22,7 @@ function takeActionTwo(action: Action, pages: Pages){
 }
 
 // call out new function
+takeActionTwo("print", 123457)
+
+// call out new function
 takeActionTwo("print", 5) //? 

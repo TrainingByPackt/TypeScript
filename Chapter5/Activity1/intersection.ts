@@ -1,4 +1,4 @@
-
+// step 1
 // create employee type
 type Employee = {
     _id: number,
@@ -6,6 +6,7 @@ type Employee = {
     LastName: string,
     salary?: number
 };
+// step 1
 // create supervisor type
 type Supervisor = {
     /* supervisors may have employees so added an array of type Employee.
@@ -14,13 +15,14 @@ type Supervisor = {
     employees: Employee[],
     department: string
 };
-
+// step 1
 // create manager type
 type Manager = {
     location: string,
     /* reuse of the Supervisor type **/
     supervisor: Supervisor[]
 };
+// step 2
 // declare floorSupervisor intersecting Employee and Supervisor
 const floorSupervisor: Employee & Supervisor  = {
     _id:1,
@@ -42,5 +44,7 @@ const storeManager: Employee & Manager = {
     ]
 };
 // console out the results
+// step 3
 console.log(floorSupervisor);
+// step 4
 console.log(storeManager);
