@@ -71,3 +71,34 @@ console.log(
 console.log(
     fighterFactory.makeFighter()
 )
+
+// step 7 
+// merge interface
+interface BasicFighter {
+    lightSpeed?: boolean
+}
+
+// step 8
+// instance a fighter
+const starThree: BasicFighter = {
+    wings:4,
+    engines:2,
+    serial: 'awing1',
+    type: 'fighter',
+    lightSpeed: true
+}
+// step 9
+// create fighter 
+const lightFighterFactory = new StarFighter(starThree)
+
+//step 10
+// console out new fighter
+console.log(
+    lightFighterFactory.makeFighter()
+)
+
+
+
+
+
+
