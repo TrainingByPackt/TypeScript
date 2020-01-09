@@ -52,3 +52,74 @@ console.log(
 superUser.logOut()
 // console out superUser
 console.log(superUser)
+
+// user array
+const myUsers = ['DarkVader','Batman','BlackPanther']
+
+// new parent class service
+class Service {
+
+    private users: string []
+    protected userCount: number = 0
+    readonly userLimit: number = 100
+
+    constructor(){
+        this.users = []
+    }
+
+    get(): string[] {
+        return this.users
+    }
+
+    set(userName: string):void {
+        this.users.push(userName)
+    }
+    
+    getCount(): number {
+        return this.userCount = this.users.length? this.users.length : 0
+    }
+
+    private resetUsers(){
+        this.users = []
+    }
+
+    loadUsers(users: string[]) {
+        this.resetUsers()
+        this.users = [
+            ...users
+        ]
+    }
+
+}
+
+const basicService = new Service()
+console.log(basicService)
+basicService.loadUsers(myUsers)
+console.log(basicService)
+console.log(basicService.getCount())
+console.log(basicService.userLimit)
+
+
+class AddedService extends Service {
+    getUserByIndex(index: number): string {
+        this.get().length //? 
+        return this.get().length > 0 ? this.get()[index]: 'no users loaded'
+    }
+    AddUser(userName: string){
+        if (userName && userName.length > 0) {
+            this.set(userName)
+        }
+    }
+}
+
+const addedService = new AddedService()
+
+console.log(addedService)
+console.log(addedService.getUserByIndex(0))
+addedService.loadUsers(myUsers)
+console.log(addedService.get(), addedService.userLimit)
+addedService.AddUser('DeathPool')
+console.log(addedService)
+
+
+
