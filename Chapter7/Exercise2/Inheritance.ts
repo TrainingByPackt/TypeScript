@@ -27,8 +27,7 @@ console.log(
 )
 
 
-// step 3  Super Interstates from User
-// use super method to call parent constructor method
+// step 3  Extend Super Class User
 // add new logout method
 class Super extends User {
    constructor(userName: string){ super(userName)}
@@ -39,7 +38,6 @@ class Super extends User {
 }
 
 // step 4 instance child class Super
-// set toke
 // console out the return from superUser get 
 const superUser = new Super('Rayon')
 // set token
@@ -53,9 +51,9 @@ superUser.logOut()
 // console out superUser
 console.log(superUser)
 
+// step 5
 // user array
 const myUsers = ['DarkVader','Batman','BlackPanther']
-
 // new parent class service
 class Service {
 
@@ -92,6 +90,7 @@ class Service {
 
 }
 
+// step 6
 const basicService = new Service()
 console.log(basicService)
 basicService.loadUsers(myUsers)
@@ -102,7 +101,6 @@ console.log(basicService.userLimit)
 
 class AddedService extends Service {
     getUserByIndex(index: number): string {
-        this.get().length //? 
         return this.get().length > 0 ? this.get()[index]: 'no users loaded'
     }
     AddUser(userName: string){
