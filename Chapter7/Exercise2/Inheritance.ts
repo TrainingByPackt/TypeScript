@@ -28,9 +28,15 @@ console.log(
 
 
 // step 3  Extend Super Class User
+// override constructor
 // add new logout method
 class Super extends User {
-   constructor(userName: string){ super(userName)}
+   constructor(userName: string){ 
+       if(userName.length > 0) {
+        super(userName)
+       }
+        
+    }
    logOut(){
         this.userName = ''
         this.token = ''
