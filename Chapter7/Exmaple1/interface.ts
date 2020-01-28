@@ -38,7 +38,7 @@ class ShoppingBot implements BasicBot {
     turnOff(){return this.powerSwitch = false}
     turnOn(){return this.powerSwitch = true}
 
-    // additional method  
+    // additional method
     shop(listOfItems: string[]): string[] {
         return listOfItems;
     }

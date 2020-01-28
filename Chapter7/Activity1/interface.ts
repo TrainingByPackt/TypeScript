@@ -60,6 +60,6 @@ newWordGen.Word() //?
 // step 6
 newWordGen.Back('Hunte')
 newWordGen.Word() //?
-//step 7
+// step 7
 newWordGen.Remove({index:0, word: ''}) //?
 newWordGen.Word() //?
