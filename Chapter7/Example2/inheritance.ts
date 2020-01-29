@@ -32,7 +32,6 @@ class AdminUser extends User {
 }
 
 const adminUser: AdminUser = new AdminUser() 
-
 // console out child class props
 for(let u in adminUser) {
     console.log(u)
