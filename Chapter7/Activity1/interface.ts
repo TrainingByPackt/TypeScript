@@ -1,65 +1,43 @@
-// step 1
-// interface 
-interface Remove {
-    index: number,
-    word: string
+interface UserObj {
+    email: string
+    loginAt: number
+    token: string
 }
 
-// step 2
-// interface 
-interface WordGenRules{
-    word: string[]
-    Word():string
-    Front(front:string):void
-    Back(back:string):void
-    Remove(index: Remove): string    
+
+interface UserClass {
+    user: UserObj
+    getUser(): UserObj
+    login(user: UserObj, password: string):UserObj
 }
 
-// step 3
-// class 
-class WordGen implements WordGenRules{
-    // global string array 
-    word: string[]
-    constructor() {
-        // init string array
-        this.word = []
-    }
-
-    Word():string{
-        // join array
-        return this.word.join(',')
-    }
-    Front(front:string){
-        // add word to front pf string array
-        this.word.unshift(front)
-    }
-    Back(back:string){
-        // add string to back of array
-        this.word.push(back)
-    }
+class User implements UserClass {
     
-    Remove(rIndex: Remove) {
-        // remove string my index match word
-        if (this.word[rIndex.index].toLowerCase() === rIndex.word.toLowerCase()) {
-            this.word.splice(rIndex.index, 1)    
-        return `${rIndex.word} Was Removed !!!`
-        } else {
-            return `${rIndex.word} Wrong Word !!!`
-        }
-        
+    user:UserObj
+
+    getUser(): UserObj {
+        return this.user
+    }
+
+    login(user:  UserObj, password: string): UserObj {
+        // set props user object
+        return this.user = user
     }
 }
 
-// step 4
-const newWordGen = new WordGen();
 
-newWordGen.Word() //?
-// step 5
-newWordGen.Front('Rayon')
-newWordGen.Word() //?
-// step 6
-newWordGen.Back('Hunte')
-newWordGen.Word() //?
-// step 7
-newWordGen.Remove({index:0, word: ''}) //?
-newWordGen.Word() //?
+const newUserClass:UserClass = new User()
+
+const newUser: UserObj = {
+    email: "home@home.com",
+    loginAt: new Date().getTime(),
+    token: "123456"
+}
+
+console.log(
+    newUserClass.login(newUser, "password123")
+)
+
+console.log(
+    newUserClass.getUser()
+)
