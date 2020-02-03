@@ -1,5 +1,5 @@
 // step 1 object
-interface Product {
+interface ProductObjectTemplate {
     height: number
     width: number
     color: string
@@ -7,22 +7,45 @@ interface Product {
 
 // set 2 function 
 interface ProductFunctionTemplate {
-    (product: Product)
+    (product: ProductObjectTemplate)
 }
 
 // step 3 class
 interface ProductClassTemplate {
     makeProduct: ProductFunctionTemplate
-    allProducts():Product[]
+    allProducts():ProductObjectTemplate[]
 }
 
 // step 4 implement class
 class Product implements ProductClassTemplate {
-    products: Product []
-    makeProduct(product: Product) {}
+    products: ProductObjectTemplate []
+    constructor() {
+        this.products = []
+    }
+    makeProduct(product: ProductObjectTemplate) {
+        this.products.push(product)
+    }
     
-    allProducts():Product[] {
+    allProducts():ProductObjectTemplate[] {
         return this.products
     }
 }
+// step 5
+const productInstance: ProductClassTemplate = new Product()
 
+// console.log(productInstance)
+
+// wrong input
+// productInstance.makeProduct({})
+
+productInstance.makeProduct(
+    {
+    color: "red", 
+    height: 10, 
+    width: 14}
+
+)
+
+console.log(
+    productInstance.allProducts()
+)
