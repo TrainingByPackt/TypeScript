@@ -72,11 +72,8 @@ const myProductTwo: ProductTemplate = {
     height: 10,
     width: 12,
     color: 'pink',
-
 }
 // call make Product function
 newProduct.makeProduct(myProductTwo)
 
 console.log(newProduct.product)
-
-
