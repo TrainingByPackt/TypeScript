@@ -15,7 +15,7 @@ export class Calculator {
     const expressionParts = expression.match(/[\d\.]+|\D+/g);
     if (expressionParts === null) return null;
 
-    const parsedExpressionParts = expressionParts.map(part => {
+    const parsedExpressionParts = expressionParts.map((part) => {
       const numberParseResult = tryParseNumberString(part);
       if (numberParseResult.isNumberString) return numberParseResult.number;
 
@@ -38,13 +38,13 @@ export class Calculator {
 
           return {
             queuedOperator: null,
-            result: acc.queuedOperator.evaluate(acc.result, part)
+            result: acc.queuedOperator.evaluate(acc.result, part),
           };
         }
 
         return {
           ...acc,
-          queuedOperator: part
+          queuedOperator: part,
         };
       },
       { result: 0, queuedOperator: null }

@@ -18,14 +18,14 @@ describe("Math utils", () => {
   describe("tryParseOperatorSymbol", () => {
     it("should parse known operators correctly", () => {
       const result = tryParseOperatorSymbol("+", [
-        { symbol: "+", evaluate: noop }
+        { symbol: "+", evaluate: noop },
       ]);
       expect(result.isOperatorSymbol).toBe(true);
     });
 
     it("should parse unknown operators correctly", () => {
       const result = tryParseOperatorSymbol("/", [
-        { symbol: "+", evaluate: noop }
+        { symbol: "+", evaluate: noop },
       ]);
       expect(result.isOperatorSymbol).toBe(false);
     });

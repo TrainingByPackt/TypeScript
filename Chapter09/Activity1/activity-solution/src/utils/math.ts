@@ -18,7 +18,7 @@ export function tryParseOperatorSymbol(
 ):
   | { isOperatorSymbol: true; operator: Operator }
   | { isOperatorSymbol: false } {
-  const matchingOperator = operators.find(operator => operator.symbol === x);
+  const matchingOperator = operators.find((operator) => operator.symbol === x);
   if (matchingOperator) {
     return { isOperatorSymbol: true, operator: matchingOperator };
   }

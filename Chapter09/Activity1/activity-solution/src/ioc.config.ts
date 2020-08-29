@@ -8,7 +8,7 @@ import { TYPES } from "./types";
 
 export const container = new Container();
 
-Object.values(Operators).forEach(Operator => {
+Object.values(Operators).forEach((Operator) => {
   container.bind<Operator>(TYPES.Operator).to(Operator);
 });
 

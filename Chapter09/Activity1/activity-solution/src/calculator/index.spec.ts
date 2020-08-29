@@ -4,7 +4,7 @@ describe("Calculator", () => {
   it("should support running given operators", () => {
     const calculator = new Calculator([
       { symbol: "+", evaluate: (a, b) => a + b },
-      { symbol: "-", evaluate: (a, b) => a - b }
+      { symbol: "-", evaluate: (a, b) => a - b },
     ]);
 
     expect(calculator.evaluate("5+3-4")).toBe(4);

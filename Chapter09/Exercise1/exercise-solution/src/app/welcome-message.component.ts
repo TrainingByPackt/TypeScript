@@ -1,11 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'welcome-message',
-  template: `
-		<h1>Welcome {{ name }}!</h1>
-	`,
+  selector: "welcome-message",
+  template: `<h1>Welcome {{ name }}!</h1>`,
 })
 export class WelcomeMessageComponent {
-  @Input() name: string;
+  @Input() name!: string;
 }
