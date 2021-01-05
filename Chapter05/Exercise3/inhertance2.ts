@@ -60,3 +60,15 @@ class Dum  extends Phone {
         return letter[number]
     }
 }
+
+const smartPhone = new Smart('12345678')
+const dumPhone = new Dum('67890')
+
+
+
+console.log(smartPhone.playVideo('videoOne'))
+console.log(dumPhone.NumberToLetter(3))
+
+
+console.log(smartPhone)
+console.log(dumPhone)
