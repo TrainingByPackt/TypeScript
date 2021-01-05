@@ -10,6 +10,6 @@ function myAge(age) {
         return "incorrect type\" " + typeof (age);
     }
 }
-//console.log(myAge(false)) // uncomment to show error
 console.log(myAge(45));
 console.log(myAge("45"));
+console.log(myAge(false)) // uncomment to show error
