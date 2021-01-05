@@ -20,7 +20,6 @@ class blogPostClass implements BlogPostClass{
     allPost: BlogPost [] = []
 
     addToPost(post: BlogPost): BlogPost[] {
-        console.log(this.allPost)
         this.allPost = [
             ...this.allPost,
             post
