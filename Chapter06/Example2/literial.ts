@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // string literal  
 type Yes = "yes";
@@ -8,7 +8,7 @@ type One = 1;
 
 // process my literal 
 function yesOne(yes: Yes, one: One ) {
-    console.log(yes, one)
+    console.log(yes, one);
 }
 
 // errors uncomment to show error examples
@@ -16,5 +16,5 @@ function yesOne(yes: Yes, one: One ) {
 // yesOne("yes", 2)
 
 // function with the correct arguments 
-yesOne("yes", 1)
+yesOne("yes", 1);
 

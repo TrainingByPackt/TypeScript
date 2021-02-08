@@ -2,7 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "quotes": [2, "single"]
   }
 }

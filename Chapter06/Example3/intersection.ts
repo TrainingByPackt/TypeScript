@@ -26,4 +26,4 @@ const cart: Cart = {
     description: "big sweet, full of sugar !!!" 
 }
 
-console.log(cart)
+console.log(cart);

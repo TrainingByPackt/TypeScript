@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 interface ErrorMessage  {
     // can only be string | number | symbol
@@ -8,12 +8,12 @@ interface ErrorMessage  {
 }
 // message object of Index type ErrorMessage
 const errorMessage: ErrorMessage  = {
-    0: "system error",
-    1: "overload",
-    apiId: 12345
-}
+	0: "system error",
+	1: "overload",
+	apiId: 12345
+};
 
 // console out object
 console.log(
-    errorMessage
-)
+	errorMessage
+);

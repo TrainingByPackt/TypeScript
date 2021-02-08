@@ -20,29 +20,29 @@ type Backup = {
 
 // combine user and admin to create the user object
 const superUser: User & Admin = {
-    _id: 1,
-    email: 'rayon.hunte@gmail.com',
-    token: '12345',
-    accessPages: [
-        'profile', 'adminConsole', 'userReset'
-    ],
-    lastLogin: new Date() 
-} 
+	_id: 1,
+	email: 'rayon.hunte@gmail.com',
+	token: '12345',
+	accessPages: [
+		'profile', 'adminConsole', 'userReset'
+	],
+	lastLogin: new Date() 
+}; 
 
 // create BackUpUser type
 type BackUpUser = User & Backup
 
 // create backup user
 const backUpUser: BackUpUser = {
-    _id: 2,
-    email: 'rayon.backup@gmail.com',
-    token: '123456',
-    lastBackUp: new Date(),
-    backUpLocation: '~/backup'
-}
+	_id: 2,
+	email: 'rayon.backup@gmail.com',
+	token: '123456',
+	lastBackUp: new Date(),
+	backUpLocation: '~/backup'
+};
 
 // console out superUser props
-console.log(superUser)
+console.log(superUser);
 
 // console out backup user props
-console.log(backUpUser)
+console.log(backUpUser);

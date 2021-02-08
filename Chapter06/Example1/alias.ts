@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 
 // primitive type assignment
@@ -10,8 +10,8 @@ type Admin = {
     username: string,
     email: string,
     userId: string,
-    AllowedPages: string   
-}
+    AllowedPages: string
+};
 
 // example of the use of a primitive type use in a class
 type OnlyNumbers = number;
@@ -19,9 +19,8 @@ type OnlyNumbers = number;
 // instance of numbers only class
 class NumbersOnly {
     count: number
-
     SetNumber(someNumber: OnlyNumbers) {
-        this.count = someNumber
+    	this.count = someNumber;
     }
 }
 
@@ -34,28 +33,28 @@ const onlyNumbers = new NumbersOnly;
 
 
 // method with correct arguments
-onlyNumbers.SetNumber(15)
+onlyNumbers.SetNumber(15);
 
 
 // function and type definition  
 function badCode(user: {
     email: string,
     userName: string,
-    token: string, 
+    token: string,
     lastLogin: number
-}) {}
+}) { }
 
 
 // object / complex type User
 type User = {
     email: string,
     userName: string,
-    token: string, 
+    token: string,
     lastLogin: number
-}
+};
 
 // function with type alias
-function goodCode(user: User){}
+function goodCode(user: User) { }
 
 
 
