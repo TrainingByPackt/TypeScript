@@ -67,8 +67,8 @@ class Suv extends Truck {
     }
 }
 
-const car: Car = new Car('blueBird', 4, 'sudan', 14)
-const truck: Truck = new Truck('blueBird', 4, 'sudan', true)
+const car: Car = new Car('blueBird', 4, 'sedan', 14)
+const truck: Truck = new Truck('hilux', 4, 'pickup', true)
 const suv: Suv = new Suv('xtrail', 4, 'box', true, true, true)
 
 console.log(car)

@@ -9,14 +9,14 @@ interface AddToPost {
 }
 
 
-interface BlogPostClass {
+interface IBlogPostClass {
     allPost: BlogPost [],
     addToPost: AddToPost
 
 }
 
 
-class blogPostClass implements BlogPostClass{
+class blogPostClass implements IBlogPostClass{
     allPost: BlogPost [] = []
 
     addToPost(post: BlogPost): BlogPost[] {
@@ -30,11 +30,11 @@ class blogPostClass implements BlogPostClass{
 }
 
 
-const blog = new blogPostClass;
+const blog = new blogPostClass();
 
-let post1: BlogPost = {post: 'bye to 2020', timeStamp: 12345678, user: 'rayon'}
-let post2: BlogPost = {post: 'welcome 2021', timeStamp: 12345678, user: 'mark'}
-let post3: BlogPost = {post: 'what happened to 1999', timeStamp: 12345678, user: 'will'}
+const post1: BlogPost = {post: 'bye to 2020', timeStamp: 12345678, user: 'rayon'}
+const post2: BlogPost = {post: 'welcome 2021', timeStamp: 12345678, user: 'mark'}
+const  post3: BlogPost = {post: 'what happened to 1999', timeStamp: 12345678, user: 'will'}
 
 blog.addToPost(post1)
 blog.addToPost(post2)
