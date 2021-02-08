@@ -6,6 +6,7 @@ interface UserObj {
     email: string
     loginAt?: number
     token?: string
+    password?: string
 }
 
 // step 2
@@ -18,13 +19,15 @@ interface UserClass {
 }
 
 
-// step 5
+// step 3
 class UserClass implements UserClass {
     
     user: UserObj
 
-    constructor(user: UserObj){
-    	this.user = user;
+    constructor(){
+    	this.user = {
+    		email: "",
+    	};
     }
 
     getUser(): UserObj {
@@ -35,29 +38,28 @@ class UserClass implements UserClass {
     	return this.user = {
     		...user,
     		loginAt: new Date().getTime(),
-    		token: "123456"
+    		token: "123456",
+    		password: password
     	};
     }
 }
 
-// step 6
+// step 4
 const newUser: UserObj = {
 	email: "home@home.com",
-}
+	loginAt: new Date().getTime(), 
+	token: "123456" 
+};
 
 // step 7
-const newUserClass = new UserClass(newUser)
+const newUserClass = new UserClass();
 
 
 console.log(
 	newUserClass.login(newUser, "password123")
-)
-
-//console.log(
-//   newUserClass.login(newUser, "12345")
-//)
+);
 
 console.log(
 	newUserClass.getUser()
-)
+);
   

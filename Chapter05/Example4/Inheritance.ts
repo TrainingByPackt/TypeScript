@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 "use strict"
 
 // comment out to test access modifier version
@@ -8,12 +9,12 @@ class UserOne {
     token: string = ""
 
     setToken(token: string): void {
-        // set user token
-        this.token = token;
+    	// set user token
+    	this.token = token;
     }
     resetPassword(password: string):string {
-        // return string of new password
-        return password;
+    	// return string of new password
+    	return password;
     }
 }
 // un comment the below to test access modifiers 
@@ -40,8 +41,8 @@ class AdminUser extends UserOne {
 
     // method that allows the admin to reset other users
     resetUserPassword(email: string):string {
-        // return default user password
-        return "password123";
+    	// return default user password
+    	return "password123";
     }
 
 
@@ -57,7 +58,7 @@ let propString = ''
 
 // loop through your props and appends prop names to propString
 for(let u in adminUser) {
-    propString += u + ','
+	propString += u + ','
 }
 // console out the results
 console.log(propString)
@@ -68,16 +69,16 @@ class SuperAdmin extends AdminUser {
     readonly myHash: string
 
     constructor() {
-        super()
-        this.myHash = '1234567'
+    	super()
+    	this.myHash = '1234567'
     }
 
     createAdminUser(adminUser: AdminUser ): AdminUser {
-        return adminUser
+    	return adminUser
     }
     resetPassword(password: string): string {
-        // add hash to password
-        return password + this.myHash; 
+    	// add hash to password
+    	return password + this.myHash; 
     }
 }
 
@@ -88,27 +89,27 @@ const superAdmin = new SuperAdmin()
 const newAdmin = new AdminUser()
 
 console.log(
-    superAdmin.resetPassword('iampassword'),
+	superAdmin.resetPassword('iampassword'),
 )
 
 console.log(
-    newAdmin.resetPassword('iampassword')
+	newAdmin.resetPassword('iampassword')
 )
 
 
 // adminUserTwo
 class AdminUserTwo extends UserOne {
-    // pages admin has access to
-    constructor(email: string) {
-        super()
-        this.email = email;
-      }
+	// pages admin has access to
+	constructor(email: string) {
+		super()
+		this.email = email;
+	}
       
       adminPages: string [] = ["admin", "settings"];
   
       resetUserPassword():string {
-          // return default user password
-          return "password123";
+      	// return default user password
+      	return "password123";
       }
   
 }
