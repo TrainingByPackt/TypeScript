@@ -1,4 +1,5 @@
-"use strict"
+/* eslint-disable no-mixed-spaces-and-tabs */
+"use strict";
 
 //step 1
 interface ProductObjectTemplate {
@@ -23,19 +24,19 @@ class Product implements ProductClassTemplate {
     products: ProductObjectTemplate []
     
     constructor() {
-        this.products = []
+    	this.products = [];
     }
 
     makeProduct(product: ProductObjectTemplate) {
-        return this.products.push(product)
+    	return this.products.push(product);
     }
     
     allProducts():ProductObjectTemplate[] {
-        return this.products
+    	return this.products;
     }}
 
 //step 5
-const productInstance: ProductClassTemplate = new Product()
+const productInstance: ProductClassTemplate = new Product();
     
 // uncomment to see error
 //productInstance.makeProduct({})
@@ -43,14 +44,14 @@ const productInstance: ProductClassTemplate = new Product()
 
 //step 6
 productInstance.makeProduct(
-        {
-        color: "red", 
-        height: 10, 
-        width: 14
-        }
-    )
+	{
+		color: "red", 
+		height: 10, 
+		width: 14
+	}
+);
 
 //step 7 
 console.log(
-     productInstance.allProducts()
-)
+	productInstance.allProducts()
+);

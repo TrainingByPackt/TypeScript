@@ -8,9 +8,9 @@ interface UserInterFace {
 
 
 const User: UserInterFace = {
-    email: 'home@home.com',
-    token: '12345678',
-    resetPassword(): boolean{
-        return true
-    }
-}
+	email: "home@home.com",
+	token: "12345678",
+	resetPassword(): boolean{
+		return true;
+	}
+};

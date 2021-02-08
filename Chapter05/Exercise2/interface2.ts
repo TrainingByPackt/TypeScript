@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // step 1
 type User = {
@@ -12,23 +12,23 @@ interface SuperAddMe {
 };
 
 // step 3
-let allUsers: User[] = [
-    { email: 'home@home.com', userId: 1 },
-    { email: 'out@side.com', userId: 2 }
+const allUsers: User[] = [
+	{ email: "home@home.com", userId: 1 },
+	{ email: "out@side.com", userId: 2 }
 ];
 
 // step 4
-let adduser: SuperAddMe
-adduser = function (user: User): User[] {
-    return [
-        ...allUsers,
-        user
-    ]
-}
+let addUser: SuperAddMe;
+addUser = function (user: User): User[] {
+	return [
+		...allUsers,
+		user
+	];
+};
 
 // step 5
 console.log(
-    adduser(
-        { email: 'slow@mo', userId: allUsers.length }
-    )
-)
+	addUser(
+		{ email: "slow@mo", userId: allUsers.length }
+	)
+);

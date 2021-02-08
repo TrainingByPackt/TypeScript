@@ -1,4 +1,5 @@
-"use strict"
+/* eslint-disable no-mixed-spaces-and-tabs */
+"use strict";
 
 // step 1
 interface UserObj {
@@ -23,25 +24,25 @@ class UserClass implements UserClass {
     user: UserObj
 
     constructor(user: UserObj){
-        this.user = user
+    	this.user = user;
     }
 
     getUser(): UserObj {
-        return this.user
+    	return this.user;
     }
 
     login(user:  UserObj, password: string): UserObj {
-       return this.user = {
-           ...user,
-           loginAt: new Date().getTime(),
-           token: '123456'
-       }
+    	return this.user = {
+    		...user,
+    		loginAt: new Date().getTime(),
+    		token: "123456"
+    	};
     }
 }
 
 // step 6
 const newUser: UserObj = {
-    email: "home@home.com",
+	email: "home@home.com",
 }
 
 // step 7
@@ -49,14 +50,14 @@ const newUserClass = new UserClass(newUser)
 
 
 console.log(
-    newUserClass.login(newUser, "password123")
+	newUserClass.login(newUser, "password123")
 )
 
 //console.log(
- //   newUserClass.login(newUser, "12345")
+//   newUserClass.login(newUser, "12345")
 //)
 
 console.log(
-    newUserClass.getUser()
+	newUserClass.getUser()
 )
   
