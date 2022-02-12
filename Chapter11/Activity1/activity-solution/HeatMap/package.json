@@ -42,7 +42,7 @@
     "@vx/heatmap": "0.0.190",
     "@vx/mock-data": "0.0.189",
     "@vx/scale": "0.0.190",
-    "ajv": "^5.5.2",
+    "ajv": "^6.12.3",
     "autoprefixer": "^9.1.0",
     "axios": "0.19.0",
     "babel-cli": "^6.26.0",
